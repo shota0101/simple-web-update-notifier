@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- 定期実行の設定コマンド：launchctl load ~/Library/LaunchAgents/check_update.plist -->
+    <key>Label</key>
+    <string>check_update</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>スクリプトのパス</string>
+    </array>
+    <key>StartInterval</key>
+    <!-- 実行間隔を10分に設定 -->
+    <integer>600</integer>
+    <key>StandardOutPath</key>
+    <string>標準出力の結果を保存するファイルパスを指定</string>
+    <key>StandardErrorPath</key>
+    <string>標準エラー出力の結果を保存するファイルパスを指定</string>
+</dict>
+</plist>
+
