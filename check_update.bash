@@ -66,7 +66,7 @@ terminal-notifier -title 'page updated : )' -message $message -open $url
 
 echo "差分結果を確認する場合はyを入力してください"
 read user_input
-if [ $user_input = "y" ] ; then
+if [ "$user_input" = "y" ] ; then
     # 差分をグラフィカルに表示
     opendiff extracted_before.txt extracted_after.txt
     # ※opendiffは「Xcode Tools」の付属ツールなので、利用する場合はインストールする必要がある
