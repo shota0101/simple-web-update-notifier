@@ -23,7 +23,20 @@ else
     exit 0
 fi
 
-curl $url -o after.html # 最新のHTMLをダウンロード
+curl -f $url -o temp.html # 最新のHTMLをダウンロード
+if [ $? = 0 ] ; then
+    # 正常にページにアクセス
+    mv temp.html after.html
+elif [ $? = 22 ] ; then
+    echo '404 URLが間違っている可能性あります。'
+    exit -1
+elif [ $? = 6 ] ; then
+    echo 'ホストを解決できませんでした。Wi-Fiに接続できていない可能性があります。'
+    exit -1
+else
+    echo 'Webページに正常にアクセスできませんでした。'
+    exit -1
+fi
 
 # 行の範囲を指定してテキストを抜き出し
 # HTMLソース無い無視したい情報が含まれている可能性がある
