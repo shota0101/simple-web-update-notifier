@@ -17,9 +17,11 @@ end=250 # 終了行
 
 if [ -f after.html ]; then # ファイル存在チェック
     mv after.html before.html # 比較のため古いページを残しておく
+    mv after-full.png before-full.png
 else
     # ファイルが存在しない場合は次の処理を待つ
     curl $url -o after.html # 次の比較のためにファイルをダウンロードしておく
+    webkit2png -F $url -o after
     exit 0
 fi
 
@@ -27,6 +29,7 @@ curl -f $url -o temp.html # 最新のHTMLをダウンロード
 if [ $? = 0 ] ; then
     # 正常にページにアクセス
     mv temp.html after.html
+    webkit2png -F $url -o after
 elif [ $? = 22 ] ; then
     echo '404 URLが間違っている可能性あります。'
     exit -1

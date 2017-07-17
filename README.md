@@ -61,6 +61,14 @@ gem install terminal-notifier
 brew install terminal-notifier
 ```
 
+### webkit2pngコマンド
+Webのスクリーンショットを取得するコマンドです。
+下記のコマンドでインストールしてください。
+
+```
+brew install webkit2png
+```
+
 ### opendiffコマンド
 
 Xcode Tools の付属ツールなので、利用する場合はインストールする必要があります。ただ、重いので他のツールで代替した方がいいかもしれません。
